@@ -13,3 +13,44 @@ your GraphQL query just needs to pass the appropriate arguments to the repositor
 the appropriate results. 
 
 Recording: https://www.twitch.tv/videos/1481210171 
+
+
+
+```http request
+GET http://localhost:8080/api/people?page=1&size=3&sort=firstName
+
+```
+
+```graphql
+query people {
+  allPeople {
+    # id
+    firstName
+    lastName
+    # phoneNumber
+    # email
+		address {
+      address
+			city
+			state
+      zip
+    }
+  }
+}
+
+query pagedPeople {
+  allPeoplePaged(page:0, size: 3) {
+    # id
+    firstName
+    lastName
+    # phoneNumber
+    # email
+		address {
+      address
+			city
+			state
+      zip
+    }
+  }
+}
+```
