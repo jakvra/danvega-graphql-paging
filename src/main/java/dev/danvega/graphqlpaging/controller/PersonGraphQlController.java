@@ -24,8 +24,7 @@ public class PersonGraphQlController {
 
     @QueryMapping
     public Page<Person> allPeoplePaged(@Argument int page, @Argument int size) {
-        PageRequest pr = PageRequest.of(page,size);
-        return repository.findAll(pr);
+        return repository.findAll(PageRequest.of(page, size));
     }
 
 }
